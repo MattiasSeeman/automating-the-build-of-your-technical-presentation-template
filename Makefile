@@ -27,6 +27,10 @@ DIAGRAMS=$(DIAGRAM_SRCS:src/diagrams/%.dot=target/diagrams/%.png)
 UML_SRCS=$(shell find src/uml -name '*.uml.txt')
 UMLS=$(UML_SRCS:src/uml/%.uml.txt=target/uml/%.png)
 
+# Only PNGs supported as input images
+IMAGE_SRCS=$(shell find src/images -name '*.png')
+IMAGES=$(IMAGE_SRCS:src/images/%.png=target/images/%.png)
+
 SLIDES_DIR=target/slides
 SLIDES=$(SLIDES_DIR)/slides.pdf
 
@@ -82,8 +86,12 @@ target/uml/%.png: src/uml/%.uml.txt src/uml/styles.iuml $(PLANTUML)
 	mkdir -p $(shell dirname $@)
 	cat $< | java -jar $(PLANTUML) -DPLANTUML_LIMIT_SIZE=8192 -tpng -pipe > $@
 
+target/images/%.png: src/images/%.png
+	mkdir -p $(shell dirname $@)
+	cp -a $< $@
+
 .PHONY: diagrams
-diagrams: $(DIAGRAMS) $(UMLS)
+diagrams: $(DIAGRAMS) $(UMLS) $(IMAGES)
 
 $(PLANTUML):
 	mkdir -p $(shell dirname $@)

@@ -54,3 +54,7 @@ And I can writes notes here in HTML.
 ## A PlantUML Diagram
 
 ![](../uml/activity.png){height=6cm}
+
+## A PNG Image
+
+![](../images/pnggrad8rgb.png){height=6cm}
