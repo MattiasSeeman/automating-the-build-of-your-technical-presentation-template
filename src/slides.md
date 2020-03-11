@@ -7,6 +7,8 @@ colorlinks: true
 linkcolor: black
 classoption:
 - dvipsnames
+- aspectratio=169
+- t
 ---
 
 ## Introduction
@@ -23,7 +25,7 @@ classoption:
 
 # Section One
 
-## I Can LaTeX
+## I Can LaTeX {.c}
 
 \centerline{\Large{\textit{I can embed \LaTeX as well.}}}
 
@@ -51,4 +53,4 @@ And I can writes notes here in HTML.
 
 ## A PlantUML Diagram
 
-![](../uml/activity.png){width=70%}
+![](../uml/activity.png){height=6cm}
